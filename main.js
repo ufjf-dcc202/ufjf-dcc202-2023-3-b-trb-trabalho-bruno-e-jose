@@ -90,3 +90,11 @@ function jogarRodada (vez){
 }
 
 jogarRodada(1);
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("restartButton").addEventListener("click", restartGame);
+});
+
+function restartGame(){
+    location.reload();
+}
