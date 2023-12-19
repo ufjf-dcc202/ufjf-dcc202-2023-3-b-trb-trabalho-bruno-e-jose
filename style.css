@@ -1,4 +1,4 @@
-body {
+  body {
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
@@ -6,3 +6,13 @@ body {
     background-color: #353535;
     margin: 0;
   }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  h3 {
+    text-align: center;
+    color: white;
+  }
+  
