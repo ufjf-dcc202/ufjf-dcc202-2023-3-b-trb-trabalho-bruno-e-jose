@@ -209,12 +209,6 @@ function verificaTabAdversario(ind, vez) {
     else {
         somaColuna(tabJogador, ptJog);
         somaColuna(tabBot, ptBot);
-        console.log(tabJogador);
-        console.log(tabBot);
-        console.log(ptJog);
-        console.log(ptBot);
-        console.log(somaJog);
-        console.log(somaBot);
         vezDaJogada();
     }
 }
