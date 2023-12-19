@@ -1,4 +1,5 @@
 export { somaColuna, jogada1, jogada2, jogada3, alocaDadoNaMatriz, girarDado, limitaColuna, tabBot, tabJogador, ptJog, ptBot, somaBot, somaJog };
+import { jogarRodada, atualizaDisplay, verificaVencedor } from "./main.js";
 
 let ptJog = [0, 0, 0];
 let ptBot = [0, 0, 0];
