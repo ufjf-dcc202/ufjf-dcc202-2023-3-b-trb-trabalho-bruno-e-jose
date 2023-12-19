@@ -35,15 +35,16 @@ function verificaVencedor(somaJog, somaBot){
     somaColuna(tabBot, ptBot);
     if(somaJog > somaBot){
         displayDado.innerHTML = "FIM DE JOGO! PLAYER1 VENCEU!";
+        console.log("PLAYER1 VENCEU");
     }
     if (somaJog === somaBot){
         displayDado.innerHTML = "EMPATE?!?!?!? COMO VOCÊ CONSEGUIU ?!?!?!";
+        console.log("EMPATE");
     }
     if (somaJog < somaBot){
         displayDado.innerHTML = "FIM DE JOGO! PLAYER2 VENCEU!";
+        console.log("PLAYER2 VENCEU");
     }
-    console.log(somaJog);
-    console.log(somaBot);
     for (let i =0; i<3; i++){
         for (let j =0; j<3; j++){
             botoes[i][j].disabled = true;
