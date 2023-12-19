@@ -1,4 +1,3 @@
-
 let ptJog = [0, 0, 0];
 let ptBot = [0, 0, 0];
 
@@ -215,4 +214,16 @@ function verificaTabAdversario(ind, vez) {
         console.log(somaBot);
         vezDaJogada();
     }
+}
+
+function vezDaJogada() {
+    if (vez === 0) {
+        vez = 1;
+    }
+    else {
+        vez = 0;
+    }
+    somaColuna(tabJogador, ptJog);
+    somaColuna(tabBot, ptBot);
+    jogarRodada(vez);
 }
