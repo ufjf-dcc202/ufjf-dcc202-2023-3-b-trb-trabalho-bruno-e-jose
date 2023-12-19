@@ -29,6 +29,27 @@ let displaySoma = document.querySelectorAll('h4');
 let displayDado = document.querySelector('h3');
 let arrayJogadas = [jogada1, jogada2, jogada3];
 
+function verificaVencedor(somaJog, somaBot){
+    somaColuna(tabJogador, ptJog);
+    somaColuna(tabBot, ptBot);
+    if(somaJog > somaBot){
+        displayDado.innerHTML = "FIM DE JOGO! PLAYER1 VENCEU!";
+    }
+    if (somaJog === somaBot){
+        displayDado.innerHTML = "EMPATE?!?!?!? COMO VOCÊ CONSEGUIU ?!?!?!";
+    }
+    if (somaJog < somaBot){
+        displayDado.innerHTML = "FIM DE JOGO! PLAYER2 VENCEU!";
+    }
+    console.log(somaJog);
+    console.log(somaBot);
+    for (let i =0; i<3; i++){
+        for (let j =0; j<3; j++){
+            botoes[i][j].disabled = true;
+        }
+    }
+}
+
 function randomizaDado(){
     let dado = girarDado();
     displayDado.innerHTML = dado;
@@ -47,3 +68,24 @@ function atualizaDisplay(){
         displaySoma[0].innerHTML = somaJog;
     }
 }
+
+function jogarRodada (vez){
+    atualizaDisplay();
+    if (vez === 1){
+        atualizaDisplay();
+        randomizaDado();
+        let indice = limitaColuna();
+        alocaDadoNaMatriz (vez, indice);
+        atualizaDisplay();
+    }
+    if (vez === 0){
+        randomizaDado();
+        for (let i=0; i<3; i++){
+            for (let j=0; j<3; j++){
+                botoes[i][j].addEventListener("click",arrayJogadas[j]);
+            }
+        }
+    }
+}
+
+jogarRodada(1);
