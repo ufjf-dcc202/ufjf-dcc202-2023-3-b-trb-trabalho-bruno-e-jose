@@ -11,6 +11,7 @@ let somaBot = 0;
 let dado;
 let vez = 1;
 
+//Itera as matrizes parametrizadas e faz cálculo de pts para cada coluna
 function somaColuna(tabuleiro, Pt) {
     atualizaDisplay();
     let cont = 1;
@@ -89,15 +90,18 @@ function somaColuna(tabuleiro, Pt) {
         atualizaDisplay();
 }
 
+//Randomiza jogada de dado
 function girarDado() {
     return dado = Math.floor(Math.random() * 6) + 1;
 }
 
+//Randomiza posição na qual o bot irá jogar
 function limitaColuna() {
     let indice = Math.floor(Math.random() * 3);
     return indice;
 }
 
+//Verifica qual posição da matriz o dado será alocado
 function alocaDadoNaMatriz(vez, ind) {
     let i = 0;
     if (vez === 0) {
@@ -155,6 +159,8 @@ function alocaDadoNaMatriz(vez, ind) {
     verificaTabAdversario(ind, vez);
 }
 
+//Procura valores de dado no tabuleiro adversário para serem eliminados
+//Conta quantas casas de cada tabuleiro foram preenchidas
 function verificaTabAdversario(ind, vez) {
     let casasJog = 0;
     let casasBot = 0;
@@ -213,6 +219,7 @@ function verificaTabAdversario(ind, vez) {
     }
 }
 
+//Alterna vez da jogada
 function vezDaJogada() {
     if (vez === 0) {
         vez = 1;
@@ -225,6 +232,8 @@ function vezDaJogada() {
     jogarRodada(vez);
 }
 
+
+//Funções criadas para serem adicionadas ao botão no eventListener
 function jogada1() {
     alocaDadoNaMatriz(0, 0);
 }

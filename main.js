@@ -30,6 +30,7 @@ let displaySoma = document.querySelectorAll('h4');
 let displayDado = document.querySelector('h3');
 let arrayJogadas = [jogada1, jogada2, jogada3];
 
+//Verifica se todas as casas de algum tabuleiro foi preenchida, calcula pts e declara vencedor
 function verificaVencedor(somaJog, somaBot){
     somaColuna(tabJogador, ptJog);
     somaColuna(tabBot, ptBot);
@@ -52,12 +53,14 @@ function verificaVencedor(somaJog, somaBot){
     }
 }
 
+//Randomiza dado e exibe no display
 function randomizaDado(){
     let dado = girarDado();
     displayDado.innerHTML = dado;
     return dado;
 }
 
+//Atualiza o estado das variáveis e exibe no display
 function atualizaDisplay(){
     for (let i = 0; i < 3; i++){
         for (let j =0; j < 3; j++){
@@ -71,6 +74,7 @@ function atualizaDisplay(){
     }
 }
 
+//Organiza todas as outras funções e predefine ações para cada vez
 function jogarRodada (vez){
     atualizaDisplay();
     if (vez === 1){
@@ -92,6 +96,7 @@ function jogarRodada (vez){
 
 jogarRodada(1);
 
+//Adiciona funcionalidade no botão de Restart Game
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("restartButton").addEventListener("click", restartGame);
 });
