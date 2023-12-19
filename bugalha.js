@@ -1,3 +1,5 @@
+export { somaColuna, jogada1, jogada2, jogada3, alocaDadoNaMatriz, girarDado, limitaColuna, tabBot, tabJogador, ptJog, ptBot, somaBot, somaJog };
+
 let ptJog = [0, 0, 0];
 let ptBot = [0, 0, 0];
 
@@ -226,4 +228,16 @@ function vezDaJogada() {
     somaColuna(tabJogador, ptJog);
     somaColuna(tabBot, ptBot);
     jogarRodada(vez);
+}
+
+function jogada1() {
+    alocaDadoNaMatriz(0, 0);
+}
+
+function jogada2() {
+    alocaDadoNaMatriz(0, 1);
+}
+
+function jogada3() {
+    alocaDadoNaMatriz(0, 2);
 }
