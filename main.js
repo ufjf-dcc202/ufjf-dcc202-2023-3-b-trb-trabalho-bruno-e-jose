@@ -1,3 +1,4 @@
+export { jogarRodada, atualizaDisplay, verificaVencedor };
 import { somaColuna, jogada1, jogada2, jogada3, alocaDadoNaMatriz, girarDado, limitaColuna, tabBot, tabJogador, ptJog, ptBot, somaBot, somaJog } from "./bugalha.js";
 
 let b1 = document.querySelector("#btn1");
