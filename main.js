@@ -28,3 +28,9 @@ let displayBot = [[b10, b11, b12], [b13, b14, b15], [b16, b17, b18]];
 let displaySoma = document.querySelectorAll('h4');
 let displayDado = document.querySelector('h3');
 let arrayJogadas = [jogada1, jogada2, jogada3];
+
+function randomizaDado(){
+    let dado = girarDado();
+    displayDado.innerHTML = dado;
+    return dado;
+}
