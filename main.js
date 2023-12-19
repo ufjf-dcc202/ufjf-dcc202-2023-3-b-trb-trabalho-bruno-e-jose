@@ -34,3 +34,16 @@ function randomizaDado(){
     displayDado.innerHTML = dado;
     return dado;
 }
+
+function atualizaDisplay(){
+    for (let i = 0; i < 3; i++){
+        for (let j =0; j < 3; j++){
+            displayBot[i][j].innerHTML = tabBot[i][j];
+            displayJog[i][j].innerHTML = tabJogador[i][j];
+            displayPtJog[j].innerHTML = ptJog[j];
+            displayPtBot[j].innerHTML = ptBot[j];
+        }
+        displaySoma[1].innerHTML = somaBot;
+        displaySoma[0].innerHTML = somaJog;
+    }
+}
