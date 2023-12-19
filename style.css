@@ -1,59 +1,8 @@
-
 body {
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #353535;
-    height: 100vh;
     margin: 0;
-}
-
-h2{
-    font-size: 20px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5px; 
-    max-width: 600px; 
-    margin: 10px; 
-}
-
-button{
-    color: #fff;
-    padding: 20px;
-    margin: 5px;
-    width: 80px;
-    height: 80px;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;background-color: #353535;
-    cursor: pointer;
-    color: #fff;
-}
-
-button:hover{
-    color: #fff;
-    background-color: #1a1a1a;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    transform: translateY(-2px);
-}
-
-.card-player1{
-    margin-bottom: 50px;
-    border: 2px solid #161616;
-    border-radius: 20px;
-    box-sizing: border-box;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
   }
