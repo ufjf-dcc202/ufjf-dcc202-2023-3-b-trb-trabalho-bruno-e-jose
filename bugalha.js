@@ -9,6 +9,84 @@ let somaBot = 0;
 let dado;
 let vez = 1;
 
+function somaColuna(tabuleiro, Pt) {
+    atualizaDisplay();
+    let cont = 1;
+        for (let j = 0; j < 3; j++) {
+            for (let i = 0; i < 3; i++){
+                if (i === 0) {
+                    if (tabuleiro[i][j] === tabuleiro[i + 1][j] || tabuleiro[i][j] === tabuleiro[i + 2][j] || tabuleiro[i + 1][j] === tabuleiro[i + 2][j]) {
+                        cont = 2;
+                        if (tabuleiro[i][j] === tabuleiro[i + 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i + 1][j]) + tabuleiro[i + 2][j];
+                        }
+                        if (tabuleiro[i][j] === tabuleiro[i + 2][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i + 2][j]) + tabuleiro[i + 1][j];
+                        }
+                        if (tabuleiro[i + 2][j] === tabuleiro[i + 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i + 2][j] + tabuleiro[i + 1][j]) + tabuleiro[i][j];
+                        }
+                    }
+                    if (tabuleiro[i][j] === tabuleiro[i + 1][j] && tabuleiro[i][j] === tabuleiro[i + 2][j] && tabuleiro[i + 1][j] === tabuleiro[i + 2][j]) {
+                        cont = 3;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i + 1][j] + tabuleiro[i + 2][j]) * cont;
+                    }
+                    if (tabuleiro[i][j] !== tabuleiro[i + 1][j] && tabuleiro[i][j] !== tabuleiro[i + 2][j] && tabuleiro[i + 1][j] !== tabuleiro[i + 2][j]) {
+                        cont = 1;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i + 1][j] + tabuleiro[i + 2][j]) * cont;
+                    }
+                }
+                if (i === 1) {
+                    if (tabuleiro[i][j] === tabuleiro[i - 1][j] || tabuleiro[i][j] === tabuleiro[i + 1][j] || tabuleiro[i - 1][j] === tabuleiro[i + 1][j]) {
+                        cont = 2;
+                        if (tabuleiro[i][j] === tabuleiro[i - 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i - 1][j]) + tabuleiro[i + 1][j];
+                        }
+                        if (tabuleiro[i][j] === tabuleiro[i + 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i + 1][j]) + tabuleiro[i - 1][j];
+                        }
+                        if (tabuleiro[i + 1][j] === tabuleiro[i - 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i + 1][j] + tabuleiro[i - 1][j]) + tabuleiro[i][j];
+                        }
+                    }
+                    if (tabuleiro[i][j] === tabuleiro[i - 1][j] && tabuleiro[i][j] === tabuleiro[i + 1][j] && tabuleiro[i - 1][j] === tabuleiro[i + 1][j]) {
+                        cont = 3;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i - 1][j] + tabuleiro[i + 1][j]) * cont;
+                    }
+                    if (tabuleiro[i][j] !== tabuleiro[i - 1][j] && tabuleiro[i][j] !== tabuleiro[i + 1][j] && tabuleiro[i - 1][j] !== tabuleiro[i + 1][j]) {
+                        cont = 1;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i - 1][j] + tabuleiro[i + 1][j]) * cont;
+                    }
+                }
+                if (i === 2) {
+                    if (tabuleiro[i][j] === tabuleiro[i - 1][j] || tabuleiro[i][j] === tabuleiro[i - 2][j] || tabuleiro[i - 1][j] === tabuleiro[i - 2][j]) {
+                        cont = 2;
+                        if (tabuleiro[i][j] === tabuleiro[i - 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i - 1][j]) + tabuleiro[i - 2][j];
+                        }
+                        if (tabuleiro[i][j] === tabuleiro[i - 2][j]) {
+                            Pt[j] = cont * (tabuleiro[i][j] + tabuleiro[i - 2][j]) + tabuleiro[i - 1][j];
+                        }
+                        if (tabuleiro[i - 2][j] === tabuleiro[i - 1][j]) {
+                            Pt[j] = cont * (tabuleiro[i - 2][j] + tabuleiro[i - 1][j]) + tabuleiro[i][j];
+                        }
+                    }
+                    if (tabuleiro[i][j] === tabuleiro[i - 1][j] && tabuleiro[i][j] === tabuleiro[i - 2][j] && tabuleiro[i - 1][j] === tabuleiro[i - 2][j]) {
+                        cont = 3;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i - 1][j] + tabuleiro[i - 2][j]) * cont;
+                    }
+                    if (tabuleiro[i][j] !== tabuleiro[i - 1][j] && tabuleiro[i][j] !== tabuleiro[i - 2][j] && tabuleiro[i - 1][j] !== tabuleiro[i - 2][j]) {
+                        cont = 1;
+                        Pt[j] = (tabuleiro[i][j] + tabuleiro[i - 1][j] + tabuleiro[i - 2][j]) * cont;
+                    }
+                }
+            }
+        }
+        somaJog = ptJog[0] + ptJog[1] + ptJog[2];
+        somaBot = ptBot[0] + ptBot[1] + ptBot[2];
+        atualizaDisplay();
+}
+
 function girarDado() {
     return dado = Math.floor(Math.random() * 6) + 1;
 }
@@ -73,4 +151,68 @@ function alocaDadoNaMatriz(vez, ind) {
         }
     }
     verificaTabAdversario(ind, vez);
+}
+
+function verificaTabAdversario(ind, vez) {
+    let casasJog = 0;
+    let casasBot = 0;
+    if (vez === 0) {
+        somaColuna(tabJogador, ptJog);
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (tabJogador[i][ind] === tabBot[j][ind]) {
+                    ptBot[ind] = ptBot[ind] - tabBot[j][ind];
+                    tabBot[j][ind] = 0;
+                }
+            }
+        }
+    }
+    if (vez === 1) {
+        somaColuna(tabBot, ptBot);
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (tabBot[i][ind] === tabJogador[j][ind]) {
+                    ptJog[ind] = ptJog[ind] - tabJogador[j][ind];
+                    tabJogador[j][ind] = 0;
+                }
+            }
+        }
+    }
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (tabJogador[i][j] === 0) {
+                continue;
+            }
+            else {
+                casasJog++;
+            }
+        }
+    }
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (tabBot[i][j] === 0) {
+                continue;
+            }
+            else {
+                casasBot++;
+            }
+        }
+    }
+    if ((casasJog === 9) || (casasBot === 9)) {
+        somaColuna(tabJogador, ptJog);
+        somaColuna(tabBot, ptBot);
+        verificaVencedor(somaJog, somaBot);
+        return;
+ }
+    else {
+        somaColuna(tabJogador, ptJog);
+        somaColuna(tabBot, ptBot);
+        console.log(tabJogador);
+        console.log(tabBot);
+        console.log(ptJog);
+        console.log(ptBot);
+        console.log(somaJog);
+        console.log(somaBot);
+        vezDaJogada();
+    }
 }
